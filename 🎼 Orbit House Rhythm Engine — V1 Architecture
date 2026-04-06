@@ -1,0 +1,169 @@
+A Multi-Taal Log-Based MIDI Composition System
+🧬 SYSTEM OVERVIEW (V1)
+The Orbit House Engine is a modular rhythmic composition framework that converts cyclical time systems into MIDI-based groove structures.
+It is built on:
+Layered log drum architecture (Amapiano core)
+Multi-taal rhythm mapping (Teentaal, Jhaptal, Misra Chapu)
+32-step hybrid grid system
+JSON-based pattern logic
+Python MIDI generation engine
+🧠 V1 DESIGN PRINCIPLE
+Rhythm is a system of interacting time cycles, not a fixed loop.
+All musical output is generated from:
+Time cycles
+Layer roles
+Grid mapping logic
+Controlled variation systems
+NOT from fixed beat patterns.
+🧱 V1 SYSTEM ARCHITECTURE
+
+┌──────────────────────────────┐
+│        THEORY LAYER          │
+│  (Docs / Concepts / Taals)   │
+└────────────┬─────────────────┘
+             ↓
+┌──────────────────────────────┐
+│        DATA LAYER            │
+│   (JSON Pattern System)      │
+│ - 32-step grids             │
+│ - Taal cycles               │
+│ - Log role definitions      │
+└────────────┬─────────────────┘
+             ↓
+┌──────────────────────────────┐
+│       ENGINE LAYER           │
+│   (Python MIDI Generator)    │
+│ - Grid parser               │
+│ - Cycle mapper              │
+│ - Note renderer             │
+└────────────┬─────────────────┘
+             ↓
+┌──────────────────────────────┐
+│       OUTPUT LAYER          │
+│   (.MID / DAW Import)       │
+│ - Amapiano grooves         │
+│ - Hybrid taal patterns     │
+└──────────────────────────────┘
+🔊 CORE SOUND ARCHITECTURE
+🎛 1. Log System (Amapiano Core)
+🔊 Sub Log (Anchor Layer)
+Low-frequency time stabilizer
+Defines structural downbeats
+Minimal variation design
+🥁 Rhythm Log (Groove Engine)
+Mid-frequency rhythmic driver
+Creates syncopation and bounce
+Main movement generator
+✨ Accent Log (Variation Layer)
+High-frequency rhythmic decoration
+Fill generation system
+Controlled unpredictability
+(Optional Expansion in V1.1)
+Sync Log (displacement layer)
+Ghost Log (micro-rhythm layer)
+⏱ RHYTHM TIME SYSTEMS
+🇿🇦 Amapiano Grid System
+32-step cycle
+2-bar structure
+3+3+2 displacement feel (tresillo influence)
+Medium-loose swing (55–62%)
+🇮🇳 Teentaal System
+16-beat symmetrical cycle
+Used as structural reference grid
+Maps directly to 16-step MIDI resolution
+🇮🇳 Jhaptal System
+10-beat asymmetrical cycle
+Used for controlled rhythmic tension
+Mapped via expanded step projection
+🇮🇳 Misra Chapu System
+7-beat fluid cycle
+Used for variation and fill logic
+Acts as overlay modulation system
+🔁 MULTI-TAAL ENGINE LOGIC
+All systems are unified through:
+Cycle → Grid Projection → MIDI Event Mapping
+🧩 Interaction Modes
+🎛 Single Mode
+One cycle active:
+Pure Teentaal OR Amapiano OR Jhaptal
+🎛 Dual Mode
+Two interacting systems:
+Example: Teentaal + Amapiano
+Example: Jhaptal + Log Engine
+Creates:
+rhythmic tension
+groove hybridisation
+🎛 Full Engine Mode (4-Log System)
+Amapiano architecture layer applied across any cycle system:
+Sub = anchor
+Rhythm = motion
+Accent = variation
+(optional sync layer in V1.1)
+📊 DATA LAYER (JSON STRUCTURE)
+Example structure:
+JSON
+{
+  "tempo": 113,
+  "grid": 32,
+  "swing": 0.58,
+  "cycle_type": "tresillo_3_3_2",
+  "sub_log": [1, 9, 17, 25],
+  "rhythm_log": [1,4,7,9,12,15,17,20,23,25,28,31],
+  "accent_log": [15,16,31,32],
+  "taal_mode": "hybrid"
+}
+⚙️ ENGINE LAYER (V1 DESIGN)
+Python system responsibilities:
+Parse JSON rhythm definitions
+Convert cycle systems into step grids
+Map logs into MIDI note events
+Apply swing & velocity rules
+Export .mid files
+⚠️ V1 intentionally avoids exposing:
+signature groove timing
+proprietary swing curves
+identity-defining rhythm offsets
+🎼 OUTPUT LAYER
+Generated outputs:
+Amapiano log grooves
+Multi-taal hybrid compositions
+Experimental rhythmic cycles
+Loop-based MIDI patterns
+DAW-ready composition blocks
+🧠 DESIGN RULE (V1 CORE)
+Structure is public. Feel is protected.
+This system publishes:
+frameworks
+logic
+architecture
+But does NOT expose:
+signature groove identity
+micro-timing personality
+sound design chains
+🚀 V1 STATUS
+This is the first public architecture release of the Orbit House Rhythm Engine.
+It establishes:
+modular rhythmic thinking
+multi-taal compatibility
+log-based groove systems
+MIDI generation structure
+🔮 ROADMAP (V1 → V2)
+V1 (Current)
+JSON-driven rhythm engine
+Basic MIDI generator
+3-log system
+Multi-taal mapping (conceptual)
+V2 (Next Phase)
+Full generative MIDI engine
+probability-based groove variation
+real-time DAW integration
+expanded log ecosystem (5–7 layers)
+📜 LICENSE
+Public domain framework (CC0 style intent)
+Free to use
+Free to modify
+Free to build upon
+🧬 FINAL STATEMENT
+Orbit House is not a genre.
+It is a:
+🎼 Rhythmic Operating System for Cyclical Music Design
