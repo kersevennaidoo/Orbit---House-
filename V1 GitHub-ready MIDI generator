@@ -1,0 +1,84 @@
+⚙️ 📦 Install dependency
+Use mido (lightweight + GitHub friendly):
+Bash
+pip install mido python-rtmidi
+🧠 📁 File structure (recommended)
+
+orbit-house-v1/
+│
+├── patterns/
+│   └── v1_core_patterns.json
+│
+├── scripts/
+│   └── generate_midi.py
+│
+└── output/
+    └── (generated .mid files)
+🎼 ⚙️ MIDI Generator Script (V1)
+Python
+import json
+from mido import Message, MidiFile, MidiTrack, bpm2tempo
+
+# -----------------------------
+# CONFIG
+# -----------------------------
+TPB = 480  # ticks per beat (standard resolution)
+STEPS = 32  # 32-step grid
+
+# Map logs to MIDI notes (simple drum-style mapping)
+NOTE_MAP = {
+    "sub_log": 36,      # Kick
+    "rhythm_log": 38,   # Snare / main groove
+    "accent_log": 42    # Hi-hat / accent
+}
+
+# -----------------------------
+# LOAD JSON PATTERN
+# -----------------------------
+def load_pattern(file_path):
+    with open(file_path, "r") as f:
+        return json.load(f)
+
+# -----------------------------
+# CONVERT STEP TO TICKS
+# -----------------------------
+def step_to_ticks(step):
+    return int((step / STEPS) * TPB * 4)  # 4 beats per bar assumption
+
+# -----------------------------
+# BUILD MIDI
+# -----------------------------
+def generate_midi(pattern, output_name="output.mid"):
+    midi = MidiFile()
+    track = MidiTrack()
+    midi.tracks.append(track)
+
+    tempo = bpm2tempo(pattern.get("tempo", 113))
+    track.append(Message('program_change', program=0, time=0))
+
+    # Set tempo meta
+    track.append(Message('note_on', note=0, velocity=0, time=0))  # placeholder
+
+    logs = pattern["log_system"]
+
+    for log_name, log_data in logs.items():
+        note = NOTE_MAP.get(log_name, 36)
+
+        for step in log_data["hits"]:
+            time = step_to_ticks(step)
+
+            # Note ON
+            track.append(Message('note_on', note=note, velocity=90, time=time))
+
+            # Note OFF (short decay for percussive feel)
+            track.append(Message('note_off', note=note, velocity=0, time=TPB // 8))
+
+    midi.save(f"output/{output_name}")
+    print(f"Generated MIDI → output/{output_name}")
+
+# -----------------------------
+# RUN
+# -----------------------------
+if __name__ == "__main__":
+    pattern = load_pattern("patterns/v1_core_patterns.json")
+    generate_midi(pattern, "orbit_house_v1.mid")
